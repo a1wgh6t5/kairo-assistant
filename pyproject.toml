@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kairo-assistant"
+version = "0.2.0"
+description = "A local-first computer assistant prototype"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["cryptography>=43", "keyring>=25"]
+
+[project.optional-dependencies]
+edge = ["laya", "huggingface-hub>=0.25"]
+voice = ["vosk", "sounddevice", "pyttsx3"]
+browser = ["playwright"]
+
+[project.scripts]
+kairo = "kairo.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["kairo*"]
